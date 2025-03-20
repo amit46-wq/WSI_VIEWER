@@ -1,0 +1,245 @@
+/* App.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-bar {
+  background-color: #f5f5f5;
+  color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-weight: 500;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 400px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button-container {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-button {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.findings-container {
+  flex: 1;
+  padding: 10px;
+}
+
+.finding-section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  background-color: #e6f7e6;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.findings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.findings-table th, .findings-table td {
+  border: 1px solid #ddd;
+  padding: 5px;
+  text-align: left;
+}
+
+.findings-table th {
+  background-color: #f5f5f5;
+}
+
+.has-count {
+  background-color: #f0f0f0;
+}
+
+/* Viewer Container */
+.viewer-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.zoom-view-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.hub-view-container {
+  height: 300px;
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+/* Zoom View */
+.zoom-view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-header {
+  background-color: #f5f5f5;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.zoom-canvas {
+  flex: 1;
+  cursor: grab;
+}
+
+.zoom-canvas:active {
+  cursor: grabbing;
+}
+
+.zoom-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+.zoom-controls button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.zoom-controls span {
+  margin: 0 10px;
+}
+
+/* Hub View */
+.hub-view {
+  width: 300px;
+  height: 100%;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-header {
+  background-color: #f5f5f5;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.hub-canvas {
+  flex: 1;
+  cursor: pointer;
+}
+
+.patient-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.info-item label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Report Button */
+.report-button-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.report-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.report-button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .hub-view-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .hub-view {
+    width: 100%;
+    height: 200px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+}

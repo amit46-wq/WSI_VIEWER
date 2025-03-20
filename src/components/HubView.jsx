@@ -29,15 +29,10 @@ const HubView = ({ position, zoomLevel, viewportSize, onPositionChange }) => {
 
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw the whole slide image
     ctx.drawImage(imageRef.current, 0, 0, canvas.width, canvas.height);
-
-    // Draw the viewport rectangle
     const viewportWidth = viewportSize.width / zoomLevel;
     const viewportHeight = viewportSize.height / zoomLevel;
-    
-    // Scale the viewport rectangle to fit the hub view
+
     const scaleX = canvas.width / imageRef.current.width;
     const scaleY = canvas.height / imageRef.current.height;
     
@@ -57,12 +52,10 @@ const HubView = ({ position, zoomLevel, viewportSize, onPositionChange }) => {
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
-    // Convert click coordinates to image coordinates
+
     const imageX = (x / hubSize.width) * imageRef.current.width;
     const imageY = (y / hubSize.height) * imageRef.current.height;
-    
-    // Update position based on click
+
     onPositionChange({ x: imageX, y: imageY });
   };
 

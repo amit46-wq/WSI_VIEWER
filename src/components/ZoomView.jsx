@@ -30,13 +30,11 @@ const ZoomView = ({ zoomLevel, position, detectionResults, onPositionChange }) =
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Calculate the area to draw based on zoom level and position
     const sourceWidth = canvas.width / zoomLevel;
     const sourceHeight = canvas.height / zoomLevel;
     const sourceX = position.x - (sourceWidth / 2);
     const sourceY = position.y - (sourceHeight / 2);
-    
-    // Draw the zoomed image
+
     ctx.drawImage(
       imageRef.current,
       Math.max(0, sourceX),
@@ -48,8 +46,6 @@ const ZoomView = ({ zoomLevel, position, detectionResults, onPositionChange }) =
       canvas.width,
       canvas.height
     );
-
-    // Draw the detection bounding boxes
     ctx.strokeStyle = 'red';
     ctx.lineWidth = 2;
     ctx.font = '12px Arial';
@@ -57,14 +53,11 @@ const ZoomView = ({ zoomLevel, position, detectionResults, onPositionChange }) =
 
     detectionResults.forEach(result => {
       const [x1, y1, x2, y2, label] = result;
-      
-      // Scale and position the bounding box
       const boxX = ((x1 - sourceX) * zoomLevel);
       const boxY = ((y1 - sourceY) * zoomLevel);
       const boxWidth = (x2 - x1) * zoomLevel;
       const boxHeight = (y2 - y1) * zoomLevel;
 
-      // Check if the box is in the visible area
       if (boxX + boxWidth > 0 && boxX < canvas.width && boxY + boxHeight > 0 && boxY < canvas.height) {
         ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
         ctx.fillText(label, boxX, boxY - 5);
@@ -105,14 +98,10 @@ const ZoomView = ({ zoomLevel, position, detectionResults, onPositionChange }) =
     e.preventDefault();
     const delta = Math.sign(e.deltaY);
     const newZoom = Math.max(1, Math.min(10, zoomLevel + delta * -0.5));
-    
-    // Update zoom level
     onZoomChange(newZoom);
   };
 
   const onZoomChange = (newZoom) => {
-    // This would be provided by the parent component
-    // For now, we'll just log it
     console.log('New zoom level:', newZoom);
   };
 

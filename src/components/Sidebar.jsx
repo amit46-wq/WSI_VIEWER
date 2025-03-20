@@ -3,7 +3,6 @@ import React from 'react';
 import { patient_info } from '../data';
 
 const Sidebar = () => {
-  // Sample RBC data based on the wireframe
   const rbcData = [
     { type: 'Angled Cells', count: 222, percentage: 67 },
     { type: 'Borderline Ovalocytes', count: 50, percentage: 20 },
@@ -14,7 +13,6 @@ const Sidebar = () => {
     { type: 'Teardrops', count: 0, percentage: 0 },
   ];
 
-  // Sample WBC data based on the wireframe
   const wbcData = [
     { type: 'Basophil', count: 222, percentage: 67 },
     { type: 'Eosinophil', count: 50, percentage: 20 },
@@ -22,7 +20,6 @@ const Sidebar = () => {
     { type: 'Monocyte', count: 2, percentage: 0.12 },
   ];
 
-  // Sample Platelets data based on the wireframe
   const plateletsData = { count: 222, percentage: 222 };
 
   return (

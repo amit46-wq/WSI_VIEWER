@@ -10,15 +10,12 @@ const output_json = {
     "date": "2024-12-09"
   };
   
-  // Parse the detection_results from the string
   const parseDetectionResults = () => {
     try {
-      // Remove comments and fix single quotes
       let jsonString = output_json.inference_results
-        .replace(/\/\*[\s\S]*?\*\//g, '') // Remove comments
-        .replace(/'/g, '"'); // Replace single quotes with double quotes
-      
-      // Parse the JSON string
+        .replace(/\/\*[\s\S]*?\*\//g, '') 
+        .replace(/'/g, '"'); 
+
       const inferenceResults = JSON.parse(jsonString);
       return inferenceResults.output.detection_results;
     } catch (error) {
